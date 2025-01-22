@@ -21,3 +21,6 @@ req.params: { "userId": "34", "bookId": "8989" }
 POST/api/users/ = create new user 
 PATCH/api/users/id = EDIT user with the given id
 DELETE/api/users/ID  = delete USERS with the given id
+
+explanation
+https://chatgpt.com/c/67914eb6-23cc-800a-890f-ec15639c443d
