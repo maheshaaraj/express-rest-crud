@@ -1,0 +1,23 @@
+GET/users = gets html page -done
+ 
+GET/api/users/ = gets all the users -done
+
+GET/api/users/id = gets the user with the given id -done
+
+
+Route parameters
+Route parameters are named URL segments that are used to capture the values specified at their position in the URL. The captured values are populated in the req.params object, with the name of the route parameter specified in the path as their respective keys.
+
+GET/api/users/:id -done
+
+:id refers to the user dynamic id 
+variable or dynamic route parameters
+
+ex: from docs
+Route path: /users/:userId/books/:bookId
+Request URL: http://localhost:3000/users/34/books/8989
+req.params: { "userId": "34", "bookId": "8989" }
+
+POST/api/users/ = create new user 
+PATCH/api/users/id = EDIT user with the given id
+DELETE/api/users/ID  = delete USERS with the given id
