@@ -4,10 +4,32 @@ const users = require('./MOCK_DATA.json');
 
 const app = express();
 
+const PORT = 8000;
 
+
+
+//middleware plugin built in urlencoded
 app.use(express.urlencoded({ extended: false }));
 
-const PORT = 8000;
+//middleware 1
+
+// intercepting all requests to all routes and then logging them 
+app.use((req, res, next) => {
+    
+    const logData = `\n ${new Date()} ${req.method} ${req.path}`;
+
+    fs.appendFile(
+        "log.txt", 
+        logData,
+        (err, data) => {
+       
+        console.log("log upadted");
+        
+    });
+    next();
+});
+
+
 
 //routes
 
@@ -19,7 +41,8 @@ app.get('/users',(req, res)=> {
 
 //getting and read/write data using get and post 
 app.get('api/users',(req, res)=> {
-    return res.json(users);
+
+    return res.json();
 });
 
 
