@@ -34,16 +34,23 @@ app.use((req, res, next) => {
 //routes
 
 
-app.get('/users',(req, res)=> {
-    res.send("<p>Users API</p>");
+
+app.get('/api/users',(req, res)=> {
+    return res.json(users);
+
+});
+app.get('/users',(req, res, next)=> {
+    const html = `
+    <ul>
+    ${users.map(user => `<li>${user.first_name}</li>`).join('')}
+    </ul>
+    `;
+    // next();
+    return res.send("<p>welcome</p>");
 });
 
 
 //getting and read/write data using get and post 
-app.get('api/users',(req, res)=> {
-
-    return res.json();
-});
 
 
 app.post('/api/users',(req, res)=> {
@@ -57,14 +64,7 @@ app.post('/api/users',(req, res)=> {
     });
 });
 
-    
-    
-
-
-
 //getting dynamic value from on endpoint 
-
-
 
 app.route('/api/users/:id').get((req, res)=> {
     // res.send(req.params);
